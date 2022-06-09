@@ -25,7 +25,11 @@ public class RoleService {
         return roleRepository.findById(id).orElse(null);
     }
 
-    public Role updateUser(Role role) {
+    public Role getRoleByName(String name) {
+        return roleRepository.getRoleByName(name);
+    }
+
+    public Role updateRole(Role role) {
         return roleRepository.findById(role.getId()).map(this::createRole).orElseThrow(() -> new NoEntityFoundException("Could not find role"));
     }
 
